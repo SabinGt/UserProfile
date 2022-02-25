@@ -27,7 +27,7 @@ def my_profile(request,*args,**kwargs):
 def fillForm(request):
     print("First request",request.GET)
     p = {'username':request.user.username}
-    r = requests.get('http://localhost:8000/update_user_profile',params = p)
+    r = requests.get('https://usersitesassy.herokuapp.com/update_user_profile',params = p)
     context = {}
     context['u'] = r.json() 
     print("fill data",r.json())
