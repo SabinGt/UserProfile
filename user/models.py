@@ -3,6 +3,7 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from PIL import Image
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 class CustomUserManager(BaseUserManager):
@@ -58,7 +59,7 @@ class CustomUser(AbstractUser):
     is_superuser            = models.BooleanField(default=False)
     profile_image           = models.ImageField(max_length=255, upload_to='user_photos', null=True, blank=True, default=DEFAULT)
     address                 = models.CharField(max_length=100,null=True,blank=True)
-    phone_number            = models.IntegerField(null=True,blank=True)
+    phone_number            = PhoneNumberField(blank=True,null=True)
     gender                  = models.CharField(max_length=50,choices=GENDER_CHOICES, null=True)
     interest                = models.CharField(max_length=150,choices = options, null=True)
     profile_completed       = models.BooleanField(default=False)

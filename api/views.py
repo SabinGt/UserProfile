@@ -58,6 +58,11 @@ class UpdateProfileView(viewsets.ModelViewSet):
         else:
             print("invalid data")
             print(serializer.errors)
+            
+            emessage=serializer.errors
+            context = {}
+            context['errors'] = emessage
+            return render(request,'fillForm.html',context)
         # return HttpResponseRedirect(redirect_to='user/profile')
         return redirect('profile')
     

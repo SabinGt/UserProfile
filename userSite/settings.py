@@ -42,11 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'rest_framework',
     'user',
-    
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'phonenumber_field'
 
 
 ]
@@ -119,6 +119,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
+PHONENUMBER_DB_FORMAT = 'E164'
+PHONENUMBER_DEFAULT_REGION = 'NP'
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
